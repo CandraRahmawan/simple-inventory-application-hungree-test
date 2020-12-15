@@ -15,7 +15,7 @@ export default function RoutesApp() {
               path={path}
               exact={exact}
               render={(props) => (
-                <Suspense fallback={<Spinner />}>
+                <Suspense fallback={<Spinner.FixSpinner />}>
                   <Component {...props} />
                 </Suspense>
               )}

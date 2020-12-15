@@ -36,6 +36,7 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/destructuring-assignment': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/no-array-index-key': 0,
     'object-curly-newline': 0,
     'comma-dangle': 0,
     indent: 0,

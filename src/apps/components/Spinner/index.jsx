@@ -1,14 +1,7 @@
-import React from "react";
-import { Wrapper } from "./style";
+import FixSpinner from './FixSpinner';
+import DynamicSpinner from './DynamicSpinner';
 
-export default function Spinner() {
-  return (
-    <Wrapper>
-      <div className="loading component-loader">
-        <div className="effect-1 effects"></div>
-        <div className="effect-2 effects"></div>
-        <div className="effect-3 effects"></div>
-      </div>
-    </Wrapper>
-  );
-}
+export default {
+  FixSpinner,
+  DynamicSpinner,
+};

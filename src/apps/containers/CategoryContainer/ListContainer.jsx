@@ -1,31 +1,33 @@
 import React from 'react';
 import { array } from 'prop-types';
-import { Card } from 'antd';
-import styled from 'styled-components';
+import { List, Skeleton, Avatar } from 'antd';
 import { Spinner } from 'apps/components';
-
-const Content = styled.div`
-  height: calc(100vh - 130px);
-  overflow: auto;
-`;
+import { FormOutlined, DeleteOutlined } from '@ant-design/icons';
+import { Content } from './style';
 
 const ListContainer = (props) => {
   const { items } = props;
   return (
     <Content>
-      {items.length > 0 ? (
-        items.map((item) => {
-          const { name, description, id } = item;
-          return (
-            <Card title={name} bordered={false} style={{ width: 300 }}>
-              <p>{id}</p>
-              <p>{description}</p>
-            </Card>
-          );
-        })
-      ) : (
-        <Spinner />
-      )}
+      <List
+        loading={{
+          indicator: <Spinner.DynamicSpinner />,
+          spinning: items.length === 0,
+        }}
+        itemLayout="horizontal"
+        dataSource={items}
+        renderItem={(item) => (
+          <List.Item actions={[<FormOutlined />, <DeleteOutlined />]}>
+            <Skeleton avatar title={false} loading={item.loading} active>
+              <List.Item.Meta
+                avatar={null}
+                title={<a href="https://ant.design">{item.name}</a>}
+                description={item.description}
+              />
+            </Skeleton>
+          </List.Item>
+        )}
+      />
     </Content>
   );
 };

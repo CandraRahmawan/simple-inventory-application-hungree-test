@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const FixWrapper = styled.div`
   .loading {
     position: absolute;
     left: calc(50% - 35px);

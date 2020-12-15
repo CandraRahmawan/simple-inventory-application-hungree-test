@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 firebase.initializeApp(firebaseConfig);
 
 const Entry = () => (
-  <Suspense fallback={<Spinner />}>
+  <Suspense fallback={<Spinner.FixSpinner />}>
     <GlobalStyle />
     <App />
   </Suspense>

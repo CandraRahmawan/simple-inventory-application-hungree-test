@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import firebase from 'firebase';
 import { object } from 'prop-types';
 import MainLayout from 'apps/layouts/MainLayout';
-import ListContainer from 'apps/containers/CategoryContainer/ListContainer';
+import ListContainer from 'apps/containers/ProductContainer/ListContainer';
 
 const ProductListPage = (props) => {
   const [data, setData] = useState([]);

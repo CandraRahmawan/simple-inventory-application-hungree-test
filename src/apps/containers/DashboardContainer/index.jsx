@@ -41,7 +41,7 @@ const DashboardContainer = () => {
             </Card>
           </Col>
         </Row>
-        <LatestCarousel />
+        <LatestCarousel products={data.products} />
       </ContentBody>
     </>
   );
