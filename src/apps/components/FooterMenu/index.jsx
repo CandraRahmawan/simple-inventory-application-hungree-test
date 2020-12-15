@@ -6,26 +6,29 @@ import {
   InboxOutlined,
   PlusCircleTwoTone,
 } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import { Wrapper } from './style';
 
-const FooterMenu = () => (
-  <Wrapper>
-    <div>
-      <HomeOutlined />
-    </div>
-    <div>
-      <TagsOutlined />
-    </div>
-    <div className="add-product">
-      <PlusCircleTwoTone twoToneColor="#f39c12" />
-    </div>
-    <div>
-      <InboxOutlined />
-    </div>
-    <div>
-      <UserOutlined />
-    </div>
-  </Wrapper>
-);
+const FooterMenu = () => {
+  return (
+    <Wrapper>
+      <Link to="/">
+        <HomeOutlined />
+      </Link>
+      <Link to="/category-list">
+        <TagsOutlined />
+      </Link>
+      <Link to="" className="add-product">
+        <PlusCircleTwoTone twoToneColor="#f39c12" />
+      </Link>
+      <Link to="/product-list">
+        <InboxOutlined />
+      </Link>
+      <Link to="/profile">
+        <UserOutlined />
+      </Link>
+    </Wrapper>
+  );
+};
 
 export default FooterMenu;

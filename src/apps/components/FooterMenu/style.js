@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   width: 100%;
   background-color: #ecf0f1;
 
-  div {
+  a {
     padding: 12px 20px;
     .anticon {
       font-size: 26px;

@@ -1,16 +1,26 @@
 import React from 'react';
-import { any } from 'prop-types';
-import { FooterMenu } from 'apps/components';
+import { element } from 'prop-types';
+import styled from 'styled-components';
+import { FooterMenu, PageHeader } from 'apps/components';
 
-const MainLayout = (props) => (
-  <>
-    {props.children}
-    <FooterMenu />
-  </>
-);
+const Content = styled.div`
+  height: calc(100vh - 130px);
+  overflow: auto;
+`;
+
+const MainLayout = (props) => {
+  const { children } = props;
+  return (
+    <>
+      <PageHeader {...props} />
+      <Content>{children}</Content>
+      <FooterMenu />
+    </>
+  );
+};
 
 MainLayout.propTypes = {
-  children: any.isRequired,
+  children: element.isRequired,
 };
 
 export default MainLayout;
