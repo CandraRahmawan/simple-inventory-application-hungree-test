@@ -1,7 +1,7 @@
 import React from "react";
 
-const Layout = (props) => {
+const MainLayout = (props) => {
   return <>{props.children}</>;
 };
 
-export default Layout;
+export default MainLayout;
