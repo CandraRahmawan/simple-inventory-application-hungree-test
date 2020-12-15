@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { List, Modal } from 'antd';
+import { List } from 'antd';
 import { PoweroffOutlined } from '@ant-design/icons';
+import { ModalConfirm } from 'apps/components';
 import { KEY_AUTH } from 'config/contants';
 import { getAuth } from 'helpers/commonHelper';
 import { Wrapper } from './style';
@@ -31,17 +32,15 @@ const ProfileContainer = () => {
           </List.Item>
         )}
       />
-      <Modal
-        title="Confirmation"
-        visible={confirmVisible}
+      <ModalConfirm
+        description="Are you sure to Logout ?"
         onOk={() => {
           localStorage.removeItem(KEY_AUTH);
           window.location.reload();
         }}
-        onCancel={() => setConfirmVisible(!confirmVisible)}
-      >
-        <p>Are you sure to Logout ?</p>
-      </Modal>
+        visible={confirmVisible}
+        setVisible={setConfirmVisible}
+      />
     </Wrapper>
   );
 };

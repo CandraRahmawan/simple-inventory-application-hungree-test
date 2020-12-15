@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { array } from 'prop-types';
-import { List, Skeleton } from 'antd';
-import { Spinner } from 'apps/components';
+import { List, message, Skeleton } from 'antd';
+import { ModalConfirm, Spinner } from 'apps/components';
 import { FormOutlined, DeleteOutlined } from '@ant-design/icons';
+import firebase from 'firebase';
 import { Content } from './style';
 
 const ListContainer = (props) => {
+  const [confirmVisible, setConfirmVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({});
   const { items } = props;
+
+  function removeDataCategory() {
+    const updates = {};
+    updates[`/categories/${selectedItem?.id}`] = null;
+    return firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          message.error('failed remove category');
+        } else {
+          message.success('success');
+          setTimeout(() => {
+            window.location.replace('/category-list');
+          }, 500);
+        }
+      });
+  }
+
   return (
     <Content>
       <List
@@ -17,7 +39,17 @@ const ListContainer = (props) => {
         itemLayout="horizontal"
         dataSource={items}
         renderItem={(item) => (
-          <List.Item actions={[<FormOutlined />, <DeleteOutlined />]}>
+          <List.Item
+            actions={[
+              <FormOutlined />,
+              <DeleteOutlined
+                onClick={() => {
+                  setConfirmVisible(!confirmVisible);
+                  setSelectedItem(item);
+                }}
+              />,
+            ]}
+          >
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
                 avatar={null}
@@ -27,6 +59,15 @@ const ListContainer = (props) => {
             </Skeleton>
           </List.Item>
         )}
+      />
+      <ModalConfirm
+        description={`are you sure to delete ${selectedItem?.name} ? `}
+        onOk={() => {
+          setConfirmVisible(!confirmVisible);
+          removeDataCategory();
+        }}
+        visible={confirmVisible}
+        setVisible={setConfirmVisible}
       />
     </Content>
   );

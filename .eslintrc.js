@@ -46,6 +46,7 @@ module.exports = {
     'no-param-reassign': 1,
     'prefer-promise-reject-errors': 0,
     'import/prefer-default-export': 1,
+    'import/no-cycle': 0,
     'operator-linebreak': 0,
   },
 };
