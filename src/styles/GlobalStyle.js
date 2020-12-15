@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: Poppins, sans-serif;
+    background-color: #f5f6fa;
     
     a {
       color: #e74c3c;

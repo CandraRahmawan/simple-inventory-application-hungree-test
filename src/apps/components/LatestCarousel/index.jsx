@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import { array } from 'prop-types';
+import { object } from 'prop-types';
 import { Spinner } from 'apps/components';
 import { Cards, Wrapper } from './style';
 
@@ -10,12 +10,12 @@ const LatestCarousel = (props) => {
   const { products } = props;
 
   let latestProduct = [];
-  if (products.length > 5) {
+  if (Object.keys(products).length > 5) {
     for (let inc = 1; inc <= 5; inc += 1) {
-      latestProduct.push(products[products.length - inc]);
+      latestProduct.push(Object.values(products)[Object.keys(products).length - inc]);
     }
   } else {
-    latestProduct = products;
+    latestProduct = Object.values(products);
   }
 
   return (
@@ -40,7 +40,7 @@ const LatestCarousel = (props) => {
 };
 
 LatestCarousel.propTypes = {
-  products: array.isRequired,
+  products: object.isRequired,
 };
 
 export default LatestCarousel;

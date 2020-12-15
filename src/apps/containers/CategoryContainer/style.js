@@ -12,4 +12,8 @@ export const Content = styled.div`
 
 export const FormWrapper = styled.div`
   padding: 12px;
+
+  .ant-form-item-label {
+    padding-bottom: 0;
+  }
 `;

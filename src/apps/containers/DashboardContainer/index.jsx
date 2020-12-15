@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Statistic, Card, Row, Col } from 'antd';
+import { Avatar, Statistic, Card, Row, Col, Typography } from 'antd';
 import firebase from 'firebase';
 import { LatestCarousel } from 'apps/components';
-import { getAuth } from 'helpers/authHelper';
+import { getAuth } from 'helpers/commonHelper';
 import { ContentHeader, ContentBody } from './style';
 
 const DashboardContainer = () => {
@@ -28,17 +28,21 @@ const DashboardContainer = () => {
           <Avatar size="large">SA</Avatar>
           <span>{getAuth().name}</span>
         </div>
+        <div className="dashboard">
+          <h1>Dashboard</h1>
+          <p>overview, inventory application system</p>
+        </div>
       </ContentHeader>
       <ContentBody>
         <Row gutter={16}>
           <Col span={12}>
             <Card>
-              <Statistic title="Total Product" value={data.products.length} />
+              <Statistic title="Total Product" value={Object.keys(data.products).length} />
             </Card>
           </Col>
           <Col span={12}>
             <Card>
-              <Statistic title="Total Category" value={data.categories.length} />
+              <Statistic title="Total Category" value={Object.keys(data.categories).length} />
             </Card>
           </Col>
         </Row>

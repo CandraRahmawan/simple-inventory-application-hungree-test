@@ -26,7 +26,7 @@ const CategoryListPage = (props) => {
         <meta name="description" content="Category List - Hungree" />
       </Helmet>
       <MainLayout history={props.history} titleHeader="Category List">
-        <ListContainer items={data} />
+        <ListContainer items={Object.values(data)} />
       </MainLayout>
     </>
   );

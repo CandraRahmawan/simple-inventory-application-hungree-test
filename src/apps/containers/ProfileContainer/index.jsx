@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { List, Modal } from 'antd';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { KEY_AUTH } from 'config/contants';
-import { getAuth } from 'helpers/authHelper';
+import { getAuth } from 'helpers/commonHelper';
 import { Wrapper } from './style';
 
 const ProfileContainer = () => {
