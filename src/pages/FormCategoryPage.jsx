@@ -6,14 +6,15 @@ import MainLayout from 'apps/layouts/MainLayout';
 import FormContainer from 'apps/containers/CategoryContainer/FormContainer';
 
 const FormCategoryPage = (props) => {
+  const { location, history } = props;
   return (
     <>
       <Helmet>
         <title>Form Input Category</title>
         <meta name="description" content="Form Input Category - Hungree" />
       </Helmet>
-      <MainLayout history={props.history} titleHeader="Form Input Category">
-        <FormContainer />
+      <MainLayout history={history} titleHeader="Form Input Category">
+        <FormContainer location={location} />
       </MainLayout>
     </>
   );
@@ -21,6 +22,7 @@ const FormCategoryPage = (props) => {
 
 FormCategoryPage.propTypes = {
   history: object.isRequired,
+  location: object.isRequired,
 };
 
 export default withRouter(FormCategoryPage);

@@ -8,14 +8,15 @@ import ListContainer from 'apps/containers/CategoryContainer/ListContainer';
 
 const CategoryListPage = (props) => {
   const [data, setData] = useState([]);
+  const { history } = props;
 
   useEffect(() => {
     firebase
       .database()
-      .ref('/')
+      .ref('/categories')
       .once('value')
       .then((snapshot) => {
-        setData(snapshot.val().categories);
+        setData(snapshot.val());
       });
   }, []);
 
@@ -25,8 +26,8 @@ const CategoryListPage = (props) => {
         <title>Category List</title>
         <meta name="description" content="Category List - Hungree" />
       </Helmet>
-      <MainLayout history={props.history} titleHeader="Category List">
-        <ListContainer items={Object.values(data)} />
+      <MainLayout history={history} titleHeader="Category List">
+        <ListContainer items={Object.values(data)} history={history} />
       </MainLayout>
     </>
   );

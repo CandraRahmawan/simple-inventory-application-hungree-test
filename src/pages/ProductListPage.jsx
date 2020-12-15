@@ -12,10 +12,10 @@ const ProductListPage = (props) => {
   useEffect(() => {
     firebase
       .database()
-      .ref('/')
+      .ref('/products')
       .once('value')
       .then((snapshot) => {
-        setData(snapshot.val().products);
+        setData(snapshot.val());
       });
   }, []);
 

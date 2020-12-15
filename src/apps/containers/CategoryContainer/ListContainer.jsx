@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { array } from 'prop-types';
+import { array, object } from 'prop-types';
 import { List, message, Skeleton } from 'antd';
 import { ModalConfirm, Spinner } from 'apps/components';
 import { FormOutlined, DeleteOutlined } from '@ant-design/icons';
@@ -9,7 +9,7 @@ import { Content } from './style';
 const ListContainer = (props) => {
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
-  const { items } = props;
+  const { items, history } = props;
 
   function removeDataCategory() {
     const updates = {};
@@ -41,7 +41,7 @@ const ListContainer = (props) => {
         renderItem={(item) => (
           <List.Item
             actions={[
-              <FormOutlined />,
+              <FormOutlined onClick={() => history.push(`/category-form?id=${item.id}`)} />,
               <DeleteOutlined
                 onClick={() => {
                   setConfirmVisible(!confirmVisible);
@@ -75,6 +75,7 @@ const ListContainer = (props) => {
 
 ListContainer.propTypes = {
   items: array.isRequired,
+  history: object.isRequired,
 };
 
 export default ListContainer;
