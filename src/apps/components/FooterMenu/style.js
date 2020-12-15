@@ -13,11 +13,10 @@ export const Wrapper = styled.div`
     .anticon {
       font-size: 26px;
     }
-    &.add-product {
-      margin-top: -28px;
-      .anticon {
-        font-size: 45px;
-      }
-    }
+  }
+
+  .anticon-plus-circle {
+    margin-top: -22px;
+    font-size: 45px;
   }
 `;
