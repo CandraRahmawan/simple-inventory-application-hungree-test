@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Statistic, Card, Row, Col } from 'antd';
 import firebase from 'firebase';
 import { LatestCarousel } from 'apps/components';
+import { getAuth } from 'helpers/authHelper';
 import { ContentHeader, ContentBody } from './style';
 
 const DashboardContainer = () => {
@@ -24,8 +25,8 @@ const DashboardContainer = () => {
     <>
       <ContentHeader className="background-primary">
         <div className="greeting-profile">
-          <Avatar size="large">AD</Avatar>
-          <span>Administrator</span>
+          <Avatar size="large">SA</Avatar>
+          <span>{getAuth().name}</span>
         </div>
       </ContentHeader>
       <ContentBody>

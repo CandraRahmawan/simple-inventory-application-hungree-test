@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Form, Input, Button } from 'antd';
+import React from 'react';
+import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { KEY_AUTH } from 'config/contants';
 import { Wrapper } from './style';
 
 const LoginContainer = () => {
   const [form] = Form.useForm();
-  const [, forceUpdate] = useState();
-
-  // To disable submit button at the beginning.
-  useEffect(() => {
-    forceUpdate({});
-  }, []);
 
   const onFinish = (values) => {
-    console.log('Finish:', values);
+    const { username, password } = values;
+    if (username === 'admin' && password === 'admin') {
+      localStorage.setItem(
+        KEY_AUTH,
+        JSON.stringify({
+          username: 'admin',
+          name: 'Super Administrator',
+          isLoggedIn: true,
+        })
+      );
+      window.location.replace('/');
+    } else {
+      message.error('username or password incorrect');
+    }
   };
 
   return (
