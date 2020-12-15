@@ -1,10 +1,16 @@
 import React from 'react';
-import { element } from 'prop-types';
+import { any } from 'prop-types';
+import { FooterMenu } from 'apps/components';
 
-const MainLayout = (props) => <>{props.children}</>;
+const MainLayout = (props) => (
+  <>
+    {props.children}
+    <FooterMenu />
+  </>
+);
 
 MainLayout.propTypes = {
-  children: element.isRequired,
+  children: any.isRequired,
 };
 
 export default MainLayout;
