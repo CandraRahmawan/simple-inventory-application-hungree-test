@@ -26,6 +26,10 @@ const routes = [
     path: '/product-form',
     component: lazy(() => import('pages/FormProductPage')),
   },
+  {
+    path: '/profile',
+    component: lazy(() => import('pages/ProfilePage')),
+  },
 ];
 
 export default routes;
