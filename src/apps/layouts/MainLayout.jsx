@@ -1,7 +1,10 @@
-import React from "react";
+import React from 'react';
+import { element } from 'prop-types';
 
-const MainLayout = (props) => {
-  return <>{props.children}</>;
+const MainLayout = (props) => <>{props.children}</>;
+
+MainLayout.propTypes = {
+  children: element.isRequired,
 };
 
 export default MainLayout;

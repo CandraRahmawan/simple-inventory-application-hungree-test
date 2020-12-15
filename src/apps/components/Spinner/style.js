@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
       width: 100%;
       height: 100%;
       border: 3px solid transparent;
-      border-left: 3px solid rgba(121, 97, 249, 1);
+      border-left: 3px solid rgba(255, 234, 167, 1);
       border-radius: 50%;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
       width: 100%;
       height: 100%;
       border: 3px solid transparent;
-      border-left: 3px solid rgba(121, 97, 249, 1);
+      border-left: 3px solid rgba(255, 234, 167, 1);
       -webkit-animation: rotateOpacity 1s ease infinite 0.2s;
       animation: rotateOpacity 1s ease infinite 0.2s;
       border-radius: 50%;
