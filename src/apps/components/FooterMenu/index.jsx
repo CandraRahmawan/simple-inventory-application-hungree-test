@@ -3,7 +3,7 @@ import {
   HomeOutlined,
   UserOutlined,
   TagsOutlined,
-  InboxOutlined,
+  AppstoreAddOutlined,
   PlusCircleTwoTone,
 } from '@ant-design/icons';
 import { Popover, List } from 'antd';
@@ -16,11 +16,11 @@ const addContent = () => (
     footer={null}
     dataSource={[
       {
-        link: '/category-add',
+        link: '/category-form',
         label: 'Add Category',
       },
       {
-        link: '/product-add',
+        link: '/product-form',
         label: 'Add Product',
       },
     ]}
@@ -33,7 +33,7 @@ const addContent = () => (
 );
 
 const FooterMenu = () => (
-  <Wrapper>
+  <Wrapper className="background-primary">
     <Link to="/">
       <HomeOutlined />
     </Link>
@@ -44,7 +44,7 @@ const FooterMenu = () => (
       <PlusCircleTwoTone twoToneColor="#f39c12" />
     </Popover>
     <Link to="/product-list">
-      <InboxOutlined />
+      <AppstoreAddOutlined />
     </Link>
     <Link to="/profile">
       <UserOutlined />

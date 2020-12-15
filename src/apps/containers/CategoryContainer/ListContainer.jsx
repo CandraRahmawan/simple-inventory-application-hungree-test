@@ -1,6 +1,6 @@
 import React from 'react';
 import { array } from 'prop-types';
-import { List, Skeleton, Avatar } from 'antd';
+import { List, Skeleton } from 'antd';
 import { Spinner } from 'apps/components';
 import { FormOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Content } from './style';

@@ -15,8 +15,16 @@ const routes = [
     component: lazy(() => import('pages/CategoryListPage')),
   },
   {
+    path: '/category-form',
+    component: lazy(() => import('pages/FormCategoryPage')),
+  },
+  {
     path: '/product-list',
     component: lazy(() => import('pages/ProductListPage')),
+  },
+  {
+    path: '/product-form',
+    component: lazy(() => import('pages/FormProductPage')),
   },
 ];
 

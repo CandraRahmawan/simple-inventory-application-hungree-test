@@ -7,7 +7,7 @@
     "yarn": ">=1.22.x"
   },
   "main": "server.js",
-  "repository": "-",
+  "repository": "git@github.com:CandraRahmawan/simple-inventory-application-hungree-test.git",
   "author": "Candra Rahmawan<candraa.rahmawan@gmail.com>",
   "license": "MIT",
   "private": true,

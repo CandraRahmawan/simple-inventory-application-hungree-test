@@ -6,17 +6,16 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: #ecf0f1;
 
   a {
     padding: 12px 20px;
     .anticon {
-      font-size: 26px;
+      font-size: 28px;
     }
   }
 
   .anticon-plus-circle {
-    margin-top: -22px;
-    font-size: 45px;
+    margin-top: -26px;
+    font-size: 60px;
   }
 `;

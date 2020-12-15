@@ -9,3 +9,7 @@ export const Content = styled.div`
     padding-left: 10px;
   }
 `;
+
+export const FormWrapper = styled.div`
+  padding: 12px;
+`;

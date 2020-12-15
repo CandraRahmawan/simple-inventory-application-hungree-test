@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Content = styled.div`
   height: calc(100vh - 130px);
@@ -8,4 +8,8 @@ export const Content = styled.div`
     padding-right: 10px;
     padding-left: 10px;
   }
+`;
+
+export const FormWrapper = styled.div`
+  padding: 12px;
 `;
