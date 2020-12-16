@@ -14,14 +14,6 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      // {
-      //   test: /\.(woff(2)?|ttf|eot|png|gif|svg)$/i,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //     },
-      //   ],
-      // },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
