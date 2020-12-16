@@ -7,7 +7,7 @@ import {
   PlusCircleTwoTone,
 } from '@ant-design/icons';
 import { Popover, List } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Wrapper } from './style';
 
 const addContent = () => (
@@ -32,24 +32,45 @@ const addContent = () => (
   />
 );
 
-const FooterMenu = () => (
-  <Wrapper className="background-primary">
-    <Link to="/">
-      <HomeOutlined />
-    </Link>
-    <Link to="/category-list">
-      <TagsOutlined />
-    </Link>
-    <Popover placement="top" content={addContent} title={null} trigger="click">
-      <PlusCircleTwoTone twoToneColor="#f39c12" />
-    </Popover>
-    <Link to="/product-list">
-      <AppstoreAddOutlined />
-    </Link>
-    <Link to="/profile">
-      <UserOutlined />
-    </Link>
-  </Wrapper>
-);
+const FooterMenu = () => {
+  const { pathname } = useLocation();
+  return (
+    <Wrapper className="background-primary">
+      <Link to="/" className={pathname === '/' ? 'active' : ''}>
+        <HomeOutlined />
+      </Link>
+      <Link
+        to="/category-list"
+        className={
+          pathname === '/category-list' ||
+          pathname === '/category-form' ||
+          pathname === '/category-detail'
+            ? 'active'
+            : ''
+        }
+      >
+        <TagsOutlined />
+      </Link>
+      <Popover placement="top" content={addContent} title={null} trigger="click">
+        <PlusCircleTwoTone twoToneColor="#f39c12" />
+      </Popover>
+      <Link
+        to="/product-list"
+        className={
+          pathname === '/product-list' ||
+          pathname === '/product-form' ||
+          pathname === '/product-detail'
+            ? 'active'
+            : ''
+        }
+      >
+        <AppstoreAddOutlined />
+      </Link>
+      <Link to="/profile" className={pathname === '/profile' ? 'active' : ''}>
+        <UserOutlined />
+      </Link>
+    </Wrapper>
+  );
+};
 
 export default FooterMenu;

@@ -7,7 +7,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: #f5f6fa;
     
     a {
-      color: #e74c3c;
+      color: #c0392b;
+      &.active {
+        color: #34495e;
+      }
     }
     
     .background-primary {
