@@ -24,7 +24,7 @@ const ListContainer = (props) => {
         } else {
           message.success('success');
           setTimeout(() => {
-            history.push('/product-list');
+            window.location.reload();
           }, 500);
         }
       });

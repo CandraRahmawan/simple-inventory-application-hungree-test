@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { array, object } from 'prop-types';
 import { List, message, Skeleton } from 'antd';
-import { ModalConfirm, Spinner } from 'apps/components';
 import { FormOutlined, DeleteOutlined } from '@ant-design/icons';
 import firebase from 'firebase';
-import { Content } from './style';
 import { Link } from 'react-router-dom';
+import { ModalConfirm, Spinner } from 'apps/components';
+import { Content } from './style';
 
 const ListContainer = (props) => {
   const [confirmVisible, setConfirmVisible] = useState(false);
@@ -24,7 +24,7 @@ const ListContainer = (props) => {
         } else {
           message.success('success');
           setTimeout(() => {
-            history.push('/category-list');
+            window.location.reload();
           }, 500);
         }
       });

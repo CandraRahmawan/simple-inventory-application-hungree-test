@@ -20,7 +20,7 @@ const ModalConfirm = (props) => {
 
 ModalConfirm.propTypes = {
   visible: bool.isRequired,
-  setVisible: bool.isRequired,
+  setVisible: func.isRequired,
   onOk: func.isRequired,
   description: string.isRequired,
 };
