@@ -17,3 +17,12 @@ export const FormWrapper = styled.div`
     padding-bottom: 0;
   }
 `;
+
+export const DetailWrapper = styled.div`
+  .ant-descriptions {
+    padding: 12px;
+  }
+  .ant-descriptions-item-content {
+    background-color: #fafafa;
+  }
+`;

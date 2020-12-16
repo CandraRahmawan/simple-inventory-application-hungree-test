@@ -3,8 +3,7 @@ import { Form, Input, Button, message } from 'antd';
 import firebase from 'firebase';
 import { object } from 'prop-types';
 import dayjs from 'dayjs';
-import qs from 'qs';
-import { getGenerateId } from 'helpers/commonHelper';
+import { getGenerateId, getQueryId } from 'helpers/commonHelper';
 import { Spinner } from 'apps/components';
 import { FormWrapper } from './style';
 
@@ -14,11 +13,7 @@ const FormContainer = (props) => {
   const [loadingBtn, setLoadingBtn] = useState(false);
   const { location } = props;
 
-  let getId = '';
-  if (location.search) {
-    getId = qs.parse(location.search.replace('?', '')).id;
-  }
-
+  const getId = getQueryId(location);
   useEffect(() => {
     if (getId) {
       setLoading(true);
@@ -29,11 +24,11 @@ const FormContainer = (props) => {
         .equalTo(getId)
         .once('value')
         .then((snapshot) => {
-          const editData = snapshot.val();
+          const editData = snapshot.val()[getId];
           form.setFieldsValue({
-            name: editData[getId]?.name,
-            description: editData[getId]?.description,
-            createdAt: editData[getId]?.createdAt,
+            name: editData?.name,
+            description: editData?.description,
+            createdAt: editData.createdAt,
           });
           setLoading(false);
         });

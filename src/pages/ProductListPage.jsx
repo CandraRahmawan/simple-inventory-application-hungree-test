@@ -8,6 +8,7 @@ import ListContainer from 'apps/containers/ProductContainer/ListContainer';
 
 const ProductListPage = (props) => {
   const [data, setData] = useState([]);
+  const { history } = props;
 
   useEffect(() => {
     firebase
@@ -25,8 +26,8 @@ const ProductListPage = (props) => {
         <title>Product List</title>
         <meta name="description" content="Product List - Hungree" />
       </Helmet>
-      <MainLayout history={props.history} titleHeader="Product List">
-        <ListContainer items={Object.values(data)} />
+      <MainLayout history={history} titleHeader="Product List">
+        <ListContainer items={Object.values(data)} history={history} />
       </MainLayout>
     </>
   );

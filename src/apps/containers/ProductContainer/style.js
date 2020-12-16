@@ -13,3 +13,12 @@ export const Content = styled.div`
 export const FormWrapper = styled.div`
   padding: 12px;
 `;
+
+export const DetailWrapper = styled.div`
+  .ant-descriptions {
+    padding: 12px;
+  }
+  .ant-descriptions-item-content {
+    background-color: #fafafa;
+  }
+`;

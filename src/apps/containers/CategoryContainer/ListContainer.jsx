@@ -5,6 +5,7 @@ import { ModalConfirm, Spinner } from 'apps/components';
 import { FormOutlined, DeleteOutlined } from '@ant-design/icons';
 import firebase from 'firebase';
 import { Content } from './style';
+import { Link } from 'react-router-dom';
 
 const ListContainer = (props) => {
   const [confirmVisible, setConfirmVisible] = useState(false);
@@ -53,7 +54,7 @@ const ListContainer = (props) => {
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
                 avatar={null}
-                title={<a href="https://ant.design">{item.name}</a>}
+                title={<Link to={`/category-detail?id=${item.id}`}>{item.name}</Link>}
                 description={item.description}
               />
             </Skeleton>

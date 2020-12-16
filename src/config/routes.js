@@ -19,12 +19,20 @@ const routes = [
     component: lazy(() => import('pages/FormCategoryPage')),
   },
   {
+    path: '/category-detail',
+    component: lazy(() => import('pages/CategoryDetailPage')),
+  },
+  {
     path: '/product-list',
     component: lazy(() => import('pages/ProductListPage')),
   },
   {
     path: '/product-form',
     component: lazy(() => import('pages/FormProductPage')),
+  },
+  {
+    path: '/product-detail',
+    component: lazy(() => import('pages/ProductDetailPage')),
   },
   {
     path: '/profile',
