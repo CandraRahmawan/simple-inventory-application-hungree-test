@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import { object } from 'prop-types';
+import { array, oneOfType, object } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Spinner } from 'apps/components';
 import { Cards, Wrapper } from './style';
@@ -28,6 +28,7 @@ const LatestCarousel = (props) => {
             const { name, imageUrl, price, currency, id } = item;
             return (
               <Card
+                key={id}
                 hoverable
                 cover={
                   <Link to={`/product-detail?id=${id}`}>
@@ -48,7 +49,7 @@ const LatestCarousel = (props) => {
 };
 
 LatestCarousel.propTypes = {
-  products: object.isRequired,
+  products: oneOfType([array, object]).isRequired,
 };
 
 export default LatestCarousel;

@@ -5,6 +5,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import { Spinner } from 'apps/components';
 import firebaseConfig from 'config/firebase.json';
 import App from './apps';
+import * as serviceWorker from './serviceWorker';
 
 import 'antd/dist/antd.css';
 
@@ -18,3 +19,5 @@ const Entry = () => (
 );
 
 ReactDOM.render(<Entry />, document.getElementById('app'));
+
+serviceWorker.register();

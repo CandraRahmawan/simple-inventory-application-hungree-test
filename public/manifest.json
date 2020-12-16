@@ -1,0 +1,26 @@
+{
+  "name": "Inventory Application Hungree",
+  "short_name": "Inventory Application",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "96x96 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/public/android-chrome-192x192.png",
+      "sizes": "200x76",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/android-chrome-512x512.png",
+      "sizes": "512x194",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#171717",
+  "background_color": "#171717",
+  "display": "standalone",
+  "orientation": "portrait"
+}
