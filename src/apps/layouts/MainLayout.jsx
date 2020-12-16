@@ -21,7 +21,7 @@ const MainLayout = (props) => {
   return (
     getAuth && (
       <>
-        <PageHeader {...props} />
+        <PageHeader titleHeader="" {...props} />
         {children}
         <FooterMenu />
       </>
