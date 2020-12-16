@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { object, bool } from 'prop-types';
 import { Image, Descriptions } from 'antd';
 import dayjs from 'dayjs';
+import firebase from 'firebase';
 import { Spinner } from 'apps/components';
 import { DetailWrapper } from './style';
 
 const DetailContainer = (props) => {
+  const [category, setCategory] = useState({});
   const { detail, loading } = props;
-  const { imageUrl, name, id, description, createdAt, updatedAt } = detail;
+  const { imageUrl, name, id, description, createdAt, updatedAt, categoryId } = detail;
+
+  useEffect(() => {
+    if (categoryId) {
+      firebase
+        .database()
+        .ref('/categories')
+        .orderByChild('id')
+        .equalTo(categoryId)
+        .once('value')
+        .then((snapshot) => {
+          setCategory(snapshot.val()[categoryId]);
+        });
+    }
+  }, [categoryId]);
 
   return (
     <DetailWrapper>
@@ -18,6 +34,7 @@ const DetailContainer = (props) => {
           <Image src={imageUrl} alt={name} />
           <Descriptions title="Product Info" bordered>
             <Descriptions.Item label="ID">{id}</Descriptions.Item>
+            <Descriptions.Item label="Category">{category.name || '...'}</Descriptions.Item>
             <Descriptions.Item label="Name">{name}</Descriptions.Item>
             <Descriptions.Item label="Description">{description}</Descriptions.Item>
             <Descriptions.Item label="Created Date">
