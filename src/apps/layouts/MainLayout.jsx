@@ -1,10 +1,10 @@
 import React from 'react';
-import { element } from 'prop-types';
+import { element, string } from 'prop-types';
 import { FooterMenu, PageHeader } from 'apps/components';
 import { KEY_AUTH } from '../../config/contants';
 
 const MainLayout = (props) => {
-  const { children } = props;
+  const { children, titleHeader } = props;
   const getAuth = localStorage.getItem(KEY_AUTH);
 
   if (!getAuth) {
@@ -21,7 +21,7 @@ const MainLayout = (props) => {
   return (
     getAuth && (
       <>
-        <PageHeader titleHeader="" {...props} />
+        <PageHeader {...props} titleHeader={titleHeader} />
         {children}
         <FooterMenu />
       </>
@@ -29,8 +29,13 @@ const MainLayout = (props) => {
   );
 };
 
+MainLayout.defaultProps = {
+  titleHeader: '...',
+};
+
 MainLayout.propTypes = {
   children: element.isRequired,
+  titleHeader: string,
 };
 
 export default MainLayout;

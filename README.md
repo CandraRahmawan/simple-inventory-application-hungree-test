@@ -35,7 +35,5 @@ for using production usage can use static server :
   put dist folder under web server (nginx/apache)
 ```
 
-### Test
-
-- `yarn test:watch` for running test watching
-- `yarn test` for running test with coverage
+### Progressive Web Application
+> if you want to activate current changes on development in PWA, you should run `yarn build` first and re-run `yarn start` 

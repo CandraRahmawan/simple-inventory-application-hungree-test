@@ -1,10 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
+  },
+  output: {
+    path: path.resolve(__dirname, 'public/dist'),
   },
   module: {
     rules: [
