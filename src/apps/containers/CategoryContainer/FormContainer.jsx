@@ -1,46 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import firebase from 'firebase';
-import { object } from 'prop-types';
+import { bool, object, string } from 'prop-types';
 import dayjs from 'dayjs';
-import { getGenerateId, getQueryId } from 'helpers/commonHelper';
+import { getGenerateId } from 'helpers/commonHelper';
 import { Spinner } from 'apps/components';
 import { FormWrapper } from './style';
 
 const FormContainer = (props) => {
   const [form] = Form.useForm();
-  const [loading, setLoading] = useState(false);
   const [loadingBtn, setLoadingBtn] = useState(false);
-  const { location } = props;
+  const { categoryId, editData, loading } = props;
 
-  const getId = getQueryId(location);
   useEffect(() => {
-    if (getId) {
-      setLoading(true);
-      firebase
-        .database()
-        .ref('/categories')
-        .orderByChild('id')
-        .equalTo(getId)
-        .once('value')
-        .then((snapshot) => {
-          const editData = snapshot.val()[getId];
-          form.setFieldsValue({
-            name: editData?.name,
-            description: editData?.description,
-            createdAt: editData.createdAt,
-          });
-          setLoading(false);
-        });
+    if (categoryId) {
+      form.setFieldsValue({
+        name: editData?.name,
+        description: editData?.description,
+        createdAt: editData.createdAt,
+      });
     }
-  }, [getId]);
+  }, [categoryId, editData]);
 
   function submitData(name, description, createdAt) {
-    const id = getId || getGenerateId();
+    const id = categoryId || getGenerateId();
     const now = dayjs().format('YYYY-MM-DD, HH:mm:ss');
     const postData = {
       createdAt: createdAt || now,
-      updatedAt: getId && now,
+      updatedAt: categoryId && now,
       id,
       name,
       description,
@@ -76,14 +63,14 @@ const FormContainer = (props) => {
           <Form.Item
             name="name"
             label="Name"
-            rules={[{ required: true, message: 'Please input Name Category' }]}
+            rules={[{ required: true, message: 'Please input name category' }]}
           >
             <Input size="large" />
           </Form.Item>
           <Form.Item
             name="description"
             label="Description"
-            rules={[{ required: true, message: 'Please input Description Category' }]}
+            rules={[{ required: true, message: 'Please input description category' }]}
           >
             <Input.TextArea size="large" />
           </Form.Item>
@@ -104,7 +91,9 @@ const FormContainer = (props) => {
 };
 
 FormContainer.propTypes = {
-  location: object.isRequired,
+  categoryId: string.isRequired,
+  editData: object.isRequired,
+  loading: bool.isRequired,
 };
 
 export default FormContainer;
