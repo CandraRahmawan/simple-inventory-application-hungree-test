@@ -38,7 +38,7 @@ const FormProductPage = (props) => {
         <meta name="description" content={`${title} - Hungree`} />
       </Helmet>
       <MainLayout history={history} titleHeader={title}>
-        <FormContainer productId={getId} editData={editData} loading={loading} />
+        <FormContainer productId={getId} editData={editData} loading={loading} history={history} />
       </MainLayout>
     </>
   );

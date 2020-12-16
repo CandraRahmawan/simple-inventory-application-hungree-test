@@ -36,7 +36,7 @@ const ProfileContainer = () => {
         description="Are you sure to Logout ?"
         onOk={() => {
           localStorage.removeItem(KEY_AUTH);
-          window.location.reload();
+          window.location.replace('/login');
         }}
         visible={confirmVisible}
         setVisible={setConfirmVisible}

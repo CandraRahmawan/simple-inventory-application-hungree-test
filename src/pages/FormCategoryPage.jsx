@@ -38,7 +38,7 @@ const FormCategoryPage = (props) => {
         <meta name="description" content={`${title} - Hungree`} />
       </Helmet>
       <MainLayout history={history} titleHeader={title}>
-        <FormContainer categoryId={getId} editData={editData} loading={loading} />
+        <FormContainer categoryId={getId} editData={editData} loading={loading} history={history} />
       </MainLayout>
     </>
   );

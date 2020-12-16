@@ -24,7 +24,7 @@ const ListContainer = (props) => {
         } else {
           message.success('success');
           setTimeout(() => {
-            window.location.replace('/category-list');
+            history.push('/category-list');
           }, 500);
         }
       });

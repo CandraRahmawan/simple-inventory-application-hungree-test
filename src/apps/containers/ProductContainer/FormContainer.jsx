@@ -10,7 +10,7 @@ import { FormWrapper } from './style';
 const { Option } = Select;
 
 const FormContainer = (props) => {
-  const { productId, editData, loading } = props;
+  const { productId, editData, loading, history } = props;
   const [form] = Form.useForm();
   const [dataCategory, setDataCategory] = useState([]);
   const [loadingBtn, setLoadingBtn] = useState(false);
@@ -64,7 +64,7 @@ const FormContainer = (props) => {
         } else {
           message.success('success');
           setTimeout(() => {
-            window.location.replace('/product-list');
+            history.replace('/product-list');
           }, 1000);
         }
       });
@@ -151,6 +151,7 @@ FormContainer.propTypes = {
   productId: string.isRequired,
   editData: object.isRequired,
   loading: bool.isRequired,
+  history: object.isRequired,
 };
 
 export default FormContainer;

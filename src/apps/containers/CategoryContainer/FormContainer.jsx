@@ -10,7 +10,7 @@ import { FormWrapper } from './style';
 const FormContainer = (props) => {
   const [form] = Form.useForm();
   const [loadingBtn, setLoadingBtn] = useState(false);
-  const { categoryId, editData, loading } = props;
+  const { categoryId, editData, loading, history } = props;
 
   useEffect(() => {
     if (categoryId) {
@@ -44,7 +44,7 @@ const FormContainer = (props) => {
         } else {
           message.success('success');
           setTimeout(() => {
-            window.location.replace('/category-list');
+            history.push('/category-list');
           }, 1000);
         }
       });
@@ -94,6 +94,7 @@ FormContainer.propTypes = {
   categoryId: string.isRequired,
   editData: object.isRequired,
   loading: bool.isRequired,
+  history: object.isRequired,
 };
 
 export default FormContainer;
