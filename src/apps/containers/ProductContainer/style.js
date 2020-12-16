@@ -20,7 +20,7 @@ export const FormWrapper = styled.div`
 
 export const DetailWrapper = styled.div`
   .ant-descriptions {
-    padding: 12px;
+    padding: 12px 12px 100px 12px;
   }
   .ant-descriptions-item-content {
     background-color: #fafafa;

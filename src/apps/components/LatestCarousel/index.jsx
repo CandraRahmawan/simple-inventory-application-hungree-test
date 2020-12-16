@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import { object } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Spinner } from 'apps/components';
 import { Cards, Wrapper } from './style';
 
@@ -24,9 +25,16 @@ const LatestCarousel = (props) => {
       <Cards>
         {latestProduct.length > 0 ? (
           latestProduct.map((item) => {
-            const { name, imageUrl, price, currency } = item;
+            const { name, imageUrl, price, currency, id } = item;
             return (
-              <Card hoverable cover={<img alt={name} src={imageUrl} />}>
+              <Card
+                hoverable
+                cover={
+                  <Link to={`/product-detail?id=${id}`}>
+                    <img alt={name} src={imageUrl} />
+                  </Link>
+                }
+              >
                 <Meta title={name} description={`${currency}. ${price}`} />
               </Card>
             );
